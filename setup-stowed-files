@@ -15,3 +15,30 @@ stow $MODE --dotfiles gitconfig-sergio-gmail
 stow $MODE --dotfiles gitconfig-workspace
 
 stow $MODE --dotfiles gitconfig-from-pve
+
+
+# before or after un-stowing tmux dot files, we need to install tpm and tmux-themepack plugins
+
+# tmux/
+# ├── dot-tmux
+# │   └── plugins
+# │       ├── tmux-themepack	https://github.com/jimeh/tmux-themepack.git + 'emass.tmuxtheme'
+# │       └── tpm					https://github.com/tmux-plugins/tpm
+# └── dot-tmux.conf
+# tmux/dot-tmux/plugins/tmux-themepack/
+
+# brute-force approach for now...
+
+if [[  ! -d "tmux/dot-tmux/plugins/tmux-themepack/" ]]; then
+	git clone https://github.com/jimeh/tmux-themepack.git tmux/dot-tmux/plugins/tmux-themepack
+	cp -a tmux/emass.tmuxtheme tmux/dot-tmux/plugins/tmux-themepack
+fi
+
+if [[ ! -d "tmux/dot-tmux/plugins/tpm" ]]; then
+	git clone https://github.com/tmux-plugins/tpm tmux/dot-tmux/plugins/tpm
+fi
+
+stow $MODE --dotfiles tmux
+
+exit
+
