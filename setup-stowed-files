@@ -2,3 +2,5 @@
 
 echo "setup..."
 
+stow -v --dotfiles gitconfig-sergio
+
