@@ -1,0 +1,120 @@
+[user]
+	email = sergio.ruocco@gmail.com
+	name = Sergio Ruocco
+[color]
+    status = auto
+    branch = auto
+    ui = auto
+
+[color "branch"]
+	current = magenta
+	local   = white
+	remote  = blue
+
+[color "diff"]
+    meta = blue bold
+    frag = magenta bold
+    old = strike white
+    new = green bold
+    whitespace = white reverse
+
+[color "status"]
+	added = yellow bold
+	changed = yellow 
+	untracked = cyan
+	branch = magenta
+
+[core]
+    symlinks = true
+	editor = ne
+    attributesFile = ~/.config/git/gitattributes
+	# autocrlf = true
+
+[diff]
+    tool = meld
+
+[difftool]
+    prompt = false
+
+[alias]
+        d = difftool
+        lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+        # https://stackoverflow.com/a/21444068
+        # see `git help log` for detailed help.
+        #   %h: abbreviated commit hash
+        #   %d: ref names, like the --decorate option of git-log(1)
+        #   %cn: commiter name
+        #   %ce: committer email
+        #   %cr: committer date, relative
+        #   %ci: committer date, ISO 8601-like format
+        #   %an: author name
+        #   %ae: author email
+        #   %ar: author date, relative
+        #   %ai: author date, ISO 8601-like format
+        #   %s: subject
+        # my awesome git log replacement
+        lol  = log --graph --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%cr)%Creset %C(green)%cn <%ce>%Creset %s\"
+        # same as above, but ISO date, NO AUTHOOR
+        lold = log --graph --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%ci)%Creset %s\"
+        # same as above, but ISO date
+        lold2 = log --graph --pretty=format:\"%C(auto)%h%d%Creset %C(cyan)(%ci)%Creset %C(green)%cn <%ce>%Creset %s\"
+        # using build-in standards
+        lol2 = log --oneline --graph --decorate
+        # shows branches and their last commits
+        lol3 = log --all --graph --decorate --oneline --simplify-by-decoration
+
+	    uncommit = reset HEAD^
+    	pushall = !git remote | xargs -L1 git push -v --all
+	    pushall2 = !git remote | xargs -L1 git push -v --all
+
+        # Undo git update-index --assume-unchanged <file>
+        # https://stackoverflow.com/a/50375706
+        #
+        hide = update-index --assume-unchanged
+        unhide = update-index --no-assume-unchanged
+        unhide-all = ! git ls-files -v | grep '^[a-z]' | cut -c3- | xargs git unhide --
+        hidden = ! git ls-files -v | grep '^[a-z]' | cut -c3-
+
+# https://stackoverflow.com/a/18674313
+
+[push]
+        default = current 
+
+# simple
+[credential]
+	helper = /usr/bin/pass-git-helper
+
+# simple
+[http "https://git.i2r.a-star.edu.sg:443/"]
+
+[http]
+    sslCAInfo = /home/sergio/git-certs/cert.pem
+    sslverify = false
+	postBuffer = 157286400
+
+# [http]
+#        sslCAInfo = /root/git-certs/cert.pem
+# [url "https://gitlab.com/qemu-project"]
+[url "ssh://gitlab.com/qemu-project"]
+	insteadOf = git://git.qemu.org
+[url "https://gitlab.com/qemu-project"]
+	insteadOf = git://git.qemu-project.org
+[url "https://gitlab.com/qemu-project/qemu-palcode"]
+	insteadOf = git://github.com/rth7680/qemu-palcode.git
+[url "https://sergioruocco@gitlab.com/qemu-project/skiboot.git"]
+	insteadOf = git://git.qemu.org/skiboot.git
+[url "https://sergioruocco@gitlab.com/qemu-project/QemuMacDrivers.git"]
+	insteadOf = git://git.qemu.org/QemuMacDrivers.git
+
+# GITCACHE https://github.com/jonasmalacofilho/git-cache-http-server
+# disabled:
+# [url "http://pulp:1234/"]
+# 	insteadOf = https://
+
+[safe]
+	directory = /home/sergio/workspace/Arduino-SPI
+	directory = /home/sergio/workspace/pulp-rt
+	directory = /home/user/workspace/Arducam_Mega
+[init]
+	defaultBranch = main
+#	defaultBranch = emass-dev
