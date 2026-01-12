@@ -4,3 +4,4 @@ echo "setup..."
 
 stow -v --dotfiles gitconfig-sergio
 
+stow -v --dotfiles gitconfig-sergio-bare/
