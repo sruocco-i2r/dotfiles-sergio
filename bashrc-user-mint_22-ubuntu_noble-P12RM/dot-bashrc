@@ -249,6 +249,10 @@ eval "$(fzf --bash)"
 # disable tailscale ssh
 sudo tailscale set --ssh=false
 
+# load secrets, if they exist
+if [[ -f ~/.bashrc-secrets.sh ]]; then
+    . ~/.bashrc-secrets.sh
+fi
 
 # use local ecsdot1 board with UART and JTAG /dev/ttyUSBx devices
 # unset ECSDOT1_SERVER
