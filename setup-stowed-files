@@ -2,8 +2,14 @@
 
 echo "setup..."
 
-stow -v --dotfiles gitconfig-sergio
+MODE='-v'
+# simulation
+#MODE="$MODE -n"
 
-stow -v --dotfiles gitconfig-sergio-bare
+stow $MODE --dotfiles gitconfig-sergio
 
-stow -v --dotfiles gitconfig-sergio-gmail
+stow $MODE --dotfiles gitconfig-sergio-bare
+
+stow $MODE --dotfiles gitconfig-sergio-gmail
+
+stow $MODE --dotfiles gitconfig-workspace
