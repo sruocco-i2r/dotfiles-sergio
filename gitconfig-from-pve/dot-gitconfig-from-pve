@@ -1,0 +1,12 @@
+[alias]
+	pushall = !git remote | xargs -L1 git push -v --all
+	pushall2 = !git remote | xargs -L1 git push -v --all
+	pr = pull --rebase
+
+# Undo git update-index --assume-unchanged <file>
+# https://stackoverflow.com/a/50375706
+# 
+	hide = update-index --assume-unchanged
+	unhide = update-index --no-assume-unchanged
+	unhide-all = ! git ls-files -v | grep '^[a-z]' | cut -c3- | xargs git unhide --
+	hidden = ! git ls-files -v | grep '^[a-z]' | cut -c3-

@@ -13,3 +13,5 @@ stow $MODE --dotfiles gitconfig-sergio-bare
 stow $MODE --dotfiles gitconfig-sergio-gmail
 
 stow $MODE --dotfiles gitconfig-workspace
+
+stow $MODE --dotfiles gitconfig-from-pve
