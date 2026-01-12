@@ -6,6 +6,8 @@ MODE='-v'
 # simulation
 #MODE="$MODE -n"
 
+stow $MODE --dotfiles bashrc-user-mint_22-ubuntu_noble-P12RM
+
 stow $MODE --dotfiles gitconfig-sergio
 
 stow $MODE --dotfiles gitconfig-sergio-bare
