@@ -1,0 +1,106 @@
+# alias gd='git diff --color'
+# https://stackoverflow.com/a/25620599
+
+alias gd='git diff --color'
+alias gd1='git diff --color --color-words'
+
+# git log --all does not show 'all' commits !!
+# alias gl='git log --graph  --decorate --color'
+# 
+# alias glas='git log --graph  --decorate --color --stat --name-status'
+
+# git log --all --graph
+
+alias gl='git log --graph  --decorate=full --color'
+alias gls='git log --stat --name-status'
+
+alias gu='git status -u'
+# alias gsu='git status -uno'
+alias gsu='git status -uall'
+alias gt='git tag -l -n10'
+alias gl1='git log --decorate=full --graph --oneline --color'
+# alias gl1='git log --name-status --oneline --decorate --color'
+alias gl2='git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --decorate=full --graph --oneline --color'
+alias gl3='git log --pretty="%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s" --date=short --graph --decorate'
+alias glh='git log --follow -p --'
+alias glp='git log -p --stat'
+alias glh2='git log --follow -p --stat --'
+alias gnp='git --no-pager'
+
+alias lg='lazygit'
+
+# git lol 
+# https://gist.github.com/Omerr/8134a61b56ca82dd90e546e7ef04eb77
+
+git config --global alias.lol "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glolr="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --color | tac"
+
+
+
+# https://stackoverflow.com/a/18674313
+# push the current branch to all remotes:
+if [[ -z "$(git-alias pushall)" ]]; then
+    # push the current branch to all remotes:
+    git config --global alias.pushall '!git remote | xargs -L1 git push -v --all'
+fi
+if [[ -z "$(git-alias pushall2)" ]]; then
+    # push all branches to all remotes:
+    git config --global alias.pushall2 '!git remote | xargs -L1 git push -v --all'
+fi
+if [[ -z "$(git-alias pr)" ]]; then
+    # Never* use git pull
+    # https://youtu.be/xN1-2p06Urc?si=R2kOabsz5dv87VNw
+    git config --global alias.pr "pull --rebase"
+fi
+
+alias ZL='zfs list -t all | less'
+
+alias LL='eza -lBhgn -U -u --git --icons'
+alias df='df -h -x squashfs -x tmpfs -x devtmpfs --total'
+
+alias ls='eza --color=auto --group-directories-first -B -g --git --git-repos    '
+alias  l='eza --color=auto --group-directories-first -B -g --git --git-repos --icons -lF '
+alias ll='eza --color=auto --group-directories-first -B -g --git --git-repos --icons -lF -a'
+alias lt='eza --color=auto --group-directories-first -B -g --git --git-repos --icons -lF -a -snew'
+
+alias tn="tmux new -s (pwd | sed 's/.*\///g')"
+
+alias dcl='docker container ls'
+alias dcr='docker container rm'
+# alias di='docker images'
+alias di='docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedAt}}\t{{.Size}}"'
+
+alias bw='source ~/bin/bw'
+alias wb='source ~/bin/wb'
+
+alias mdl='export TERM=xterm-256color && mdless'
+
+alias pf="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+alias pd='fzf --preview='\''ls -1la {}'\'' --bind shift-up:preview-page-up,shift-down:preview-page-down'
+
+
+alias did="docker images --digests"
+
+
+# BAT ALIASES https://www.reddit.com/r/commandline/comments/wux88h/comment/ilc385g/?utm_source=share&utm_medium=web3x&utm_name=web3xcss
+# examples:
+# $ diff x y | bd
+# $ a command that outputs JSON | bj
+# $ command --help | bm
+
+bd="bat -l diff"
+bj="bat -l json"
+bm="bat -l man"
+
+alias ip='ip -pretty -br  -color=auto  a'
+
+
+# export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+# export LESS=' -R '
+
+
+# echo "useful commands:"
+# echo "shopt -s extglob"
+# echo 'ls -1 !(*_`date -d "yesterday" +\%m_\%d_`*) '
+# echo 'ls -1 !(*_`date +\%m_\%d`_*)'
+

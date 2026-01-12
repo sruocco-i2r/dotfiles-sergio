@@ -16,6 +16,8 @@ stow $MODE --dotfiles gitconfig-workspace
 
 stow $MODE --dotfiles gitconfig-from-pve
 
+stow $MODE --dotfiles bash-aliases
+
 
 # before or after un-stowing tmux dot files, we need to install tpm and tmux-themepack plugins
 
