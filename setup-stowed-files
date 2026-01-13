@@ -1,38 +1,28 @@
 #!/usr/bin/env bash
 
 echo "setup..."
-
 MODE='-v'
 # simulation
 #MODE="$MODE -n"
 
+
+# .bashrc ..bash-preexec.sh .bash_aliases
 stow $MODE --dotfiles bashrc-user-mint_22-ubuntu_noble-P12RM
-
-stow $MODE --dotfiles gitconfig-sergio
-
-stow $MODE --dotfiles gitconfig-sergio-bare
-
-stow $MODE --dotfiles gitconfig-sergio-gmail
-
-stow $MODE --dotfiles gitconfig-workspace
-
-stow $MODE --dotfiles gitconfig-from-pve
-
+# TODO: fresh install https://github.com/rcaloras/bash-preexec
 stow $MODE --dotfiles bash-aliases
 
 
-# before or after un-stowing tmux dot files, we need to install tpm and tmux-themepack plugins
+# .gitconfig
+stow $MODE --dotfiles gitconfig-sergio
+stow $MODE --dotfiles gitconfig-sergio-bare
+stow $MODE --dotfiles gitconfig-sergio-gmail
+stow $MODE --dotfiles gitconfig-workspace
+stow $MODE --dotfiles gitconfig-from-pve
 
-# tmux/
-# ├── dot-tmux
-# │   └── plugins
-# │       ├── tmux-themepack	https://github.com/jimeh/tmux-themepack.git + 'emass.tmuxtheme'
-# │       └── tpm					https://github.com/tmux-plugins/tpm
-# └── dot-tmux.conf
-# tmux/dot-tmux/plugins/tmux-themepack/
 
+# tmux
+# TODO: before/after un-stowing tmux dot files, install tpm and tmux-themepack plugins
 # brute-force approach for now...
-
 if [[  ! -d "tmux/dot-tmux/plugins/tmux-themepack/" ]]; then
 	git clone https://github.com/jimeh/tmux-themepack.git tmux/dot-tmux/plugins/tmux-themepack
 	cp -a tmux/emass.tmuxtheme tmux/dot-tmux/plugins/tmux-themepack
@@ -41,8 +31,11 @@ fi
 if [[ ! -d "tmux/dot-tmux/plugins/tpm" ]]; then
 	git clone https://github.com/tmux-plugins/tpm tmux/dot-tmux/plugins/tpm
 fi
-
 stow $MODE --dotfiles tmux
+
+
+# AoB...
+
 
 exit
 
