@@ -254,14 +254,19 @@ if [[ -f ~/.bashrc-secrets.sh ]]; then
     . ~/.bashrc-secrets.sh
 fi
 
-# use local ecsdot1 board with UART and JTAG /dev/ttyUSBx devices
-# unset ECSDOT1_SERVER
-export ECSDOT1_SERVER=192.168.0.150
 
-## LAST COMMAND !
-## https://github.com/rcaloras/bash-preexec/
+## ECSDOT
+# use local ecsdot1 board with UART and JTAG /dev/ttyUSBx devices
+unset ECSDOT1_SERVER
+
+# use remote board server
+# export ECSDOT1_SERVER=192.168.0.150
+
 
 # PROMPT EXECUTION TIMER
 # https://jakemccrary.com/blog/2020/04/21/using-bash-preexec-for-monitoring-the-runtime-of-your-last-command/
+
+## LAST COMMAND !
 # https://github.com/rcaloras/bash-preexec/
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+
