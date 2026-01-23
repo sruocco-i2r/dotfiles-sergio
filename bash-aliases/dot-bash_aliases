@@ -22,7 +22,7 @@ alias gl1='git log --decorate=full --graph --oneline --color'
 # alias gl1='git log --name-status --oneline --decorate --color'
 alias gl2='git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --decorate=full --graph --oneline --color'
 alias gl3='git log --pretty="%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s" --date=short --graph --decorate'
-alias glh='git log --follow -p --'
+alias glh='git log -p --'
 alias glp='git log -p --stat'
 alias glh2='git log --follow -p --stat --'
 alias gnp='git --no-pager'
@@ -31,6 +31,7 @@ alias lg='lazygit'
 
 # git lol 
 # https://gist.github.com/Omerr/8134a61b56ca82dd90e546e7ef04eb77
+# https://gist.github.com/outro56/31e588e5622dcf7931de0aee49baa7b2
 
 git config --global alias.lol "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glolr="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --color | tac"
@@ -81,6 +82,8 @@ alias pd='fzf --preview='\''ls -1la {}'\'' --bind shift-up:preview-page-up,shift
 
 alias did="docker images --digests"
 
+
+alias timestamp="date +\%Y_\%m_\%d__\%H_\%M_\%S"
 
 # BAT ALIASES https://www.reddit.com/r/commandline/comments/wux88h/comment/ilc385g/?utm_source=share&utm_medium=web3x&utm_name=web3xcss
 # examples:
