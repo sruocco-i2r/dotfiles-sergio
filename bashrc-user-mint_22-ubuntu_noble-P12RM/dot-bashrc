@@ -207,12 +207,18 @@ export PROMPT_COLOR_END=$PROMPT_COLOR_WHITE
 export PS1='\n${debian_chroot:+($debian_chroot)}'$PROMPT_COLOR_START'\u@\h'$PROMPT_COLOR_LTGREY' \D{%T} ${timer_show} '$PROMPT_COLOR_BLUE'\w\n\n'\
 $PROMPT_COLOR_START'$'$PROMPT_COLOR_END' '
 
-export GIT_PROMPT_START='\n'$PROMPT_COLOR_BLUE'\w\n'$PROMPT_COLOR_START'\u@\h'$PROMPT_COLOR_LTGREY' \D{%T} ${timer_show}'$PROMPT_COLOR_END
+# $(git rev-parse --short HEAD)
+export GIT_PROMPT_START='\n'$PROMPT_COLOR_LTBLUE'\w\n'$PROMPT_COLOR_START'\u@\h'$PROMPT_COLOR_LTGREY' \D{%T} ${timer_show}'$PROMPT_COLOR_END
 export GIT_PROMPT_END=" \n\n"$PROMPT_COLOR_START"$ "$PROMPT_COLOR_END
 
 # export GIT_PROMPT_END=" \n\n"$PROMPT_COLOR_DKORANGE"$ "$PROMPT_COLOR_END
 
 if [ -f "$HOME/bin/bash-git-prompt/gitprompt.sh" ]; then
+
+prompt_callback() {
+   echo " ${PROMPT_COLOR_DKPURPLE}$(git rev-parse --short HEAD)$PROMPT_COLOR_END"
+}
+
     GIT_PROMPT_ONLY_IN_REPO=1
     # also set in /home/user/bin/gitprompt.sh
 
