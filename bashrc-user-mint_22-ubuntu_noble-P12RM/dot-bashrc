@@ -283,3 +283,13 @@ unset ECSDOT1_SERVER
 # https://github.com/rcaloras/bash-preexec/
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 
+
+
+
+# RPi PICO SDK
+export PICO_SDK_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-sdk
+export PICO_EXAMPLES_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-examples
+export PICO_EXTRAS_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-extras
+export PICO_PLAYGROUND_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-playground
+
+
