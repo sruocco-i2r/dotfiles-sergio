@@ -247,7 +247,7 @@ export PATH=$PATH:$HOME/.nvm/versions/node/v25.6.1/bin
 # export EDITOR='vim' && export OPEN_IN_EDITOR='vim'
 # export EDITOR='subl' && export OPEN_IN_EDITOR='subl'
 # delta hyperlinks use lazyconfig
-export EDITOR='Kone' && export OPEN_IN_EDITOR='Kone'
+export EDITOR='/home/user/bin/Kone' && export OPEN_IN_EDITOR='/home/user/bin/Kone'
 
 # SHOPT GLOB
 shopt -s extglob 
