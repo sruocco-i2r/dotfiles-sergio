@@ -150,8 +150,6 @@ keychain -l --query
 
 # export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/workspace/SWIP-PMEP-2022-31/I2R-SWIP/code/docker-ubuntu:$PATH"
-
 
 #
 # https://blog.packagecloud.io/set-environment-variable-save-thousands-of-system-calls/
