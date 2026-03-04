@@ -189,7 +189,7 @@ export PROMPT_COLOR_YELLOW='\[\033[1;33m\]' # yellow/orange
 export PROMPT_COLOR_BLUE='\[\033[1;34m\]' # blue
 export PROMPT_COLOR_PURPLE='\[\033[1;35m\]' # purple
 
-export PROMPT_COLOR_WHITE='\[\033[1;37m\]' # white
+export PROMPT_COLOR_WHITE='\[\033[0;37m\]' # white
 export PROMPT_COLOR_DKGREY='\[\033[0;30m\]' # very dark grey
 export PROMPT_COLOR_LTGREY='\e[38;2;150;150;150m' # light grey
 
