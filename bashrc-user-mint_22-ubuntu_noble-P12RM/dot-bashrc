@@ -239,6 +239,9 @@ export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin
 # RUST cargo
 export PATH=$PATH:$HOME/.cargo/bin
 
+# NPM
+export PATH=$PATH:$HOME/.nvm/versions/node/v25.6.1/bin
+
 # open-in-editor https://github.com/dandavison/open-in-editor#
 # export EDITOR='ne' && export OPEN_IN_EDITOR='ne'
 # export EDITOR='vim' && export OPEN_IN_EDITOR='vim'
