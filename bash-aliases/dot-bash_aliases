@@ -18,8 +18,12 @@ alias gu='git status -u'
 # alias gsu='git status -uno'
 alias gsu='git status -uall'
 alias gt='git tag -l -n10'
+
 alias gl1='git log --decorate=full --graph --oneline --color'
-# alias gl1='git log --name-status --oneline --decorate --color'
+#  alias gl1='git log --name-status --oneline --decorate --color'
+alias gl1a='git log --oneline --decorate --graph'
+
+
 alias gl2='git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --decorate=full --graph --oneline --color'
 alias gl3='git log --pretty="%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s" --date=short --graph --decorate'
 alias glh='git log -p --'
