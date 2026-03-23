@@ -3,6 +3,7 @@
 
 alias gd='git diff --color'
 alias gd1='git diff --color --color-words'
+alias gd2='git --no-pager diff'
 
 # git log --all does not show 'all' commits !!
 # alias gl='git log --graph  --decorate --color'
@@ -78,7 +79,9 @@ alias di='docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.C
 alias bw='source ~/bin/bw'
 alias wb='source ~/bin/wb'
 
-alias mdl='export TERM=xterm-256color && mdless'
+# alias mdl='export TERM=xterm-256color && mdless'
+alias mdl='export TERM=xterm-256color && glow -t -w $(( $COLUMNS < 120 ? $COLUMNS : 120))'
+
 
 alias pf="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 alias pd='fzf --preview='\''ls -1la {}'\'' --bind shift-up:preview-page-up,shift-down:preview-page-down'
