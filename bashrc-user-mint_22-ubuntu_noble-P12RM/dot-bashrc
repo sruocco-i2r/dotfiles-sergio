@@ -277,10 +277,17 @@ unset ECSDOT1_SERVER
 # export ECSDOT1_SERVER=192.168.0.150
 
 # RPi PICO SDK
+
+# /home/user/workspace
+# /mnt/vms/workspace/pico-dirtyJtag
+
 export PICO_SDK_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-sdk
 export PICO_EXAMPLES_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-examples
 export PICO_EXTRAS_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-extras
 export PICO_PLAYGROUND_PATH=/home/user/workspace/jtag-boot/pico-setup/pico/pico-playground
+PTOOL='sudo /usr/local/bin/picotool'
+# export PICO_TOOLCHAIN_PATH=/opt/riscv/riscv-toolchain-14/
+export PICO_PLATFORM=rp2350-riscv
 
 
 
