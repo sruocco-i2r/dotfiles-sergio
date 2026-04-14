@@ -76,6 +76,7 @@
         unhide = update-index --no-assume-unchanged
         unhide-all = ! git ls-files -v | grep '^[a-z]' | cut -c3- | xargs git unhide --
         hidden = ! git ls-files -v | grep '^[a-z]' | cut -c3-
+	tree = log --graph --all --decorate --oneline --simplify-by-decoration --pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(auto)%d%Creset %s %C(green)(%cr)%Creset' --date=short
 
 # https://stackoverflow.com/a/18674313
 
