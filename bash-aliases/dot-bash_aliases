@@ -74,7 +74,13 @@ alias tn="tmux new -s (pwd | sed 's/.*\///g')"
 alias dcl='docker container ls'
 alias dcr='docker container rm'
 # alias di='docker images'
-alias di='docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedAt}}\t{{.Size}}"'
+# alias di='docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedAt}}\t{{.Size}}"'
+alias di='docker images --format "table {{.CreatedAt}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}" | (read -r header && echo "$header" && sort -r) '
+# 'dis' = docker images short — hides per-rebuild immutable tags (SHA + SemVer + git-describe);
+# keeps floats (:rel, :dev, :latest, :main, descriptive floats) + staging tags.
+alias dis='docker images --format "table {{.CreatedAt}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}" | (read -r header && echo "$header" && grep -Pv "\s((rel|dev|main)(-[a-z]+)?-(v[0-9.]+(-[0-9]+-g[0-9a-f]+)?|[0-9a-f]{7,8})|emass-zephyr-sdk-[0-9.]+)\s" | sort -r) '
+
+# docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedAt}}\t{{.Size}}"'
 
 alias bw='source ~/bin/bw'
 alias wb='source ~/bin/wb'
