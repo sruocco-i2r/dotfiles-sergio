@@ -1,0 +1,45 @@
+/* ~/.config/gtk-3.0/gtk.css
+ *
+ * Active-window hint (reworked 2026-07-08).
+ *
+ * The previous version (Mint-forum "colored titlebar" snippet) painted the CSD
+ * titlebar/headerbar with the theme's ACCENT colour — that's why the active
+ * window's titlebar was RED. All of that headerbar coloring has been removed,
+ * so the titlebar now uses the GTK theme's default look again.
+ *
+ * The active-window hint is instead a thin, BRIGHT-YELLOW outline around the
+ * whole focused window, drawn via the decoration node's box-shadow spread.
+ * Inactive (backdrop) windows get only the normal subtle drop-shadow, so the
+ * yellow clearly marks which window is active.
+ *
+ * NOTES:
+ *   - gtk.css is read when a GTK app STARTS — restart an app (or log out/in)
+ *     to see the change; already-open windows won't update live.
+ *   - Tweak thickness via the "2px" below (1px = thinner, 3px = bolder).
+ *   - Tweak colour via #ffea00 (#ffff00 = pure/brightest, #ffd700 = gold).
+ *   - Full revert: restore gtk.css.bak-2026-07-08 in this directory.
+ *   - Scope note: targets `.ssd decoration` (server-side-decorated windows,
+ *     which is what Cinnamon/Muffin gives most apps — same scope the old red
+ *     border used). If a pure-CSD app doesn't show the outline, add a matching
+ *     `decoration { ... }` rule without the `.ssd`.
+ */
+
+/* Thin bright-yellow border around the ACTIVE window. */
+.ssd decoration {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22),   /* subtle drop-shadow */
+                0 0 0 1px #ffd700;                /* 1px bright-yellow outline, alt colors #ffea00 */
+    border: none;
+}
+
+/* INACTIVE windows: no yellow — just the normal subtle shadow. */
+.ssd decoration:backdrop {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+    border: none;
+}
+
+/* Kept from the original snippet (unrelated to the titlebar colour):
+   hovering the window close button turns it red. Delete if unwanted. */
+.titlebar button.titlebutton.close:hover {
+    background-color: #fc4f4f;
+    color: white;
+}

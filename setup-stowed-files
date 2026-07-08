@@ -34,6 +34,15 @@ fi
 stow $MODE --dotfiles tmux
 
 
+# gtk-3.0 (active-window bright-yellow border CSS: ~/.config/gtk-3.0/gtk.css).
+# NOTE: this package uses a literal ".config" dir and plain stow (NOT
+# --dotfiles). GNU Stow 2.3.1 (shipped on this box) has a bug folding a
+# --dotfiles "dot-" *directory* into an existing target like ~/.config
+# ("stow_contents() called with non-directory path"). A literal .config folds
+# cleanly. Revert the live file from ~/.config/gtk-3.0/gtk.css.bak-<date>.
+stow $MODE gtk3
+
+
 # AoB...
 
 
