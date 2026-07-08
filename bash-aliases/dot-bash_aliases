@@ -120,3 +120,18 @@ alias ip='ip -pretty -br  -color=auto  a'
 # echo 'ls -1 !(*_`date -d "yesterday" +\%m_\%d_`*) '
 # echo 'ls -1 !(*_`date +\%m_\%d`_*)'
 
+
+# dmesgq — dmesg minus the high-volume Docker/veth bridge churn (harmless
+# container create/teardown spam from the GitLab runner: "docker0: port N(veth..)
+# entered <state>", "veth.. entered/left promiscuous|allmulticast mode",
+# "ethN: renamed from veth.."). Keeps real kernel messages from being buried.
+# All args pass through, so: `dmesgq -w` to follow, `dmesgq -T` for wall-clock,
+# `dmesgq -l warn,err` by level. Use plain `dmesg` for the unfiltered firehose.
+# (loglevel filtering alone can't hide these — they're KERN_INFO in the ring buffer.)
+dmesgq() {
+    local color=--color=never
+    [ -t 1 ] && color=--color=always
+    dmesg "$color" "$@" \
+        | grep --line-buffered -vaE 'docker0: port [0-9]|veth[0-9a-f]{6,}'
+}
+
